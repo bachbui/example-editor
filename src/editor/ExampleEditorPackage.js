@@ -40,15 +40,15 @@ import HyperlinkComponent from './components/HyperlinkComponent'
 
 import ExampleEditor from './components/ExampleEditor'
 
-// import EditNodeCommand from './commands/EditNodeCommand'
+import EditNodeCommand from './commands/EditNodeCommand'
 import HyperlinkCommand from './commands/HyperlinkCommand'
 
 import EditHyperlinkTool from './tools/EditHyperlinkTool'
-// import EditFigureTool from './tools/EditFigureTool'
+import EditFigureTool from './tools/EditFigureTool'
 
-// import CaptionComponent from './components/CaptionComponent'
+import CaptionComponent from './components/CaptionComponent'
 import Checkbox from './ui/Checkbox'
-// import Dropdown from './ui/Dropdown'
+import Dropdown from './ui/Dropdown'
 
 export default {
   name: 'author',
@@ -103,14 +103,14 @@ export default {
       nodeType: 'hyperlink',
       commandGroup: 'prompt'
     })
-    // config.addCommand('edit-figure', EditNodeCommand, {
-    //   nodeType: 'figure',
-    //   commandGroup: 'prompt'
-    // })
+    config.addCommand('edit-figure', EditNodeCommand, {
+      nodeType: 'figure',
+      commandGroup: 'prompt'
+    })
 
     // Tools
     config.addTool('edit-hyperlink', EditHyperlinkTool)
-    // config.addTool('edit-figure', EditFigureTool)
+    config.addTool('edit-figure', EditFigureTool)
 
     // Icons
     config.addIcon('emphasis', {
@@ -124,9 +124,9 @@ export default {
     })
 
     // Components
-    // config.addComponent('caption', CaptionComponent)
+    config.addComponent('caption', CaptionComponent)
     config.addComponent('checkbox', Checkbox)
-    // config.addComponent('dropdown', Dropdown)
+    config.addComponent('dropdown', Dropdown)
     config.addComponent('example-article', ExampleArticleComponent)
     config.addComponent('title', TitleComponent)
     config.addComponent('body', BodyComponent)

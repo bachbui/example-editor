@@ -9,3 +9,22 @@
   max-width: 100%;
   margin: 0px auto;
 }
+.sc-figure.size-small {
+  width: 50%
+}
+.sc-figure.size-medium {
+  width: 75%
+}
+.sc-figure.size-large {
+  width: 100%
+}
+.sm-figure.inset-left {
+  max-width: 45%;
+  float: left;
+  margin-right: 5%;
+}
+.sm-figure.inset-right {
+  max-width: 45%;
+  float: right;
+  margin-left: 5%;
+}

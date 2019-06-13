@@ -1,6 +1,6 @@
-import { TextBlock } from 'substance'
+import { Container } from 'substance'
 
-class Caption extends TextBlock {}
+class Caption extends Container {}
 
 Caption.schema = {
   type: "caption"
