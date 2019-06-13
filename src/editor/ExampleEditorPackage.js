@@ -30,28 +30,39 @@ import {
   FigureConverter,
   CaptionConverter,
   EmphasisConverter,
-  HyperlinkConverter
+  HyperlinkConverter,
+  PullquoteConverter,
+  PullquoteBodyConverter,
+  PullquoteCreditConverter
 } from '../converters'
 
-import ExampleArticleComponent from './components/ExampleArticleComponent'
-import BodyComponent from './components/BodyComponent'
-import TitleComponent from './components/TitleComponent'
-import ParagraphComponent from './components/ParagraphComponent'
-import FigureComponent from './components/FigureComponent'
-import EmphasisComponent from './components/EmphasisComponent'
-import HyperlinkComponent from './components/HyperlinkComponent'
+import {
+  EditNodeCommand,
+  HyperlinkCommand
+} from './commands'
 
-import ExampleEditor from './components/ExampleEditor'
+import {
+  BodyComponent,
+  CaptionComponent,
+  EmphasisComponent,
+  ExampleArticleComponent,
+  ExampleEditor,
+  FigureComponent,
+  HyperlinkComponent,
+  ParagraphComponent,
+  PullquoteComponent,
+  TitleComponent
+} from './components'
 
-import EditNodeCommand from './commands/EditNodeCommand'
-import HyperlinkCommand from './commands/HyperlinkCommand'
+import {
+  EditFigureTool,
+  EditHyperlinkTool
+} from './tools'
 
-import EditHyperlinkTool from './tools/EditHyperlinkTool'
-import EditFigureTool from './tools/EditFigureTool'
-
-import CaptionComponent from './components/CaptionComponent'
-import Checkbox from './ui/Checkbox'
-import Dropdown from './ui/Dropdown'
+import {
+  Checkbox,
+  Dropdown
+} from './ui'
 
 export default {
   name: 'author',
@@ -79,14 +90,17 @@ export default {
     config.addNode(Title)
 
     // Converters
-    config.addConverter('xml', ExampleArticleConverter)
-    config.addConverter('xml', TitleConverter)
     config.addConverter('xml', BodyConverter)
-    config.addConverter('xml', ParagraphConverter)
-    config.addConverter('xml', FigureConverter)
     config.addConverter('xml', CaptionConverter)
     config.addConverter('xml', EmphasisConverter)
+    config.addConverter('xml', ExampleArticleConverter)
+    config.addConverter('xml', FigureConverter)
     config.addConverter('xml', HyperlinkConverter)
+    config.addConverter('xml', ParagraphConverter)
+    config.addConverter('xml', PullquoteConverter)
+    config.addConverter('xml', PullquoteBodyConverter)
+    config.addConverter('xml', PullquoteCreditConverter)
+    config.addConverter('xml', TitleConverter)
 
     // TODO: we could make XMLImporter the default
     config.addImporter('xml', XMLImporter)
@@ -137,6 +151,7 @@ export default {
     config.addComponent('title', TitleComponent)
     config.addComponent('body', BodyComponent)
     config.addComponent('paragraph', ParagraphComponent)
+    config.addComponent('pullquote', PullquoteComponent)
     config.addComponent('figure', FigureComponent)
     config.addComponent('emphasis', EmphasisComponent)
     config.addComponent('hyperlink', HyperlinkComponent)

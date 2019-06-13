@@ -6,6 +6,7 @@ class FigureComponent extends NodeComponent {
     super.didMount.call(this)
     this.context.editorSession.onRender('document', this._onDocumentChange, this)
     this.parent.getClassNames = this.getPositionClassNames
+    this.parent.rerender()
   }
 
   dispose() {

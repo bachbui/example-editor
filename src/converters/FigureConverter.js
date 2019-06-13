@@ -6,8 +6,7 @@ export default {
     var title = el.find('title')
     var caption = el.find('caption')
     node.imageSource = el.attr('image-source')
-    node.inset = el.attr('inset') || undefined
-    node.size = el.attr('size') || undefined
+    node.position = el.attr('position') || undefined
     node.title = converter.convertElement(title).id
     node.caption = converter.convertElement(caption).id
   },
@@ -15,12 +14,8 @@ export default {
   export: function(node, el, converter) {
     el.attr('image-source', node.imageSource)
 
-    if (node.inset) {
-      el.attr('inset', node.inset)
-    }
-
-    if (node.size) {
-      el.attr('size', node.size)
+    if (node.position) {
+      el.attr('position', node.position)
     }
     el.append(converter.convertNode(node.title))
     el.append(converter.convertNode(node.caption))
