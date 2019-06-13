@@ -51,12 +51,14 @@ import {
   HyperlinkComponent,
   ParagraphComponent,
   PullquoteComponent,
+  PullquoteBodyComponent,
+  PullquoteCreditComponent,
   TitleComponent
 } from './components'
 
 import {
-  EditFigureTool,
-  EditHyperlinkTool
+  EditHyperlinkTool,
+  EditPositionTool
 } from './tools'
 
 import {
@@ -127,10 +129,15 @@ export default {
       nodeType: 'figure',
       commandGroup: 'prompt'
     })
+    config.addCommand('edit-pullquote', EditNodeCommand, {
+      nodeType: 'pullquote',
+      commandGroup: 'prompt'
+    })
 
     // Tools
     config.addTool('edit-hyperlink', EditHyperlinkTool)
-    config.addTool('edit-figure', EditFigureTool)
+    config.addTool('edit-figure', EditPositionTool)
+    config.addTool('edit-pullquote', EditPositionTool)
 
     // Icons
     config.addIcon('emphasis', {
@@ -144,17 +151,19 @@ export default {
     })
 
     // Components
+    config.addComponent('body', BodyComponent)
     config.addComponent('caption', CaptionComponent)
     config.addComponent('checkbox', Checkbox)
     config.addComponent('dropdown', Dropdown)
+    config.addComponent('emphasis', EmphasisComponent)
     config.addComponent('example-article', ExampleArticleComponent)
-    config.addComponent('title', TitleComponent)
-    config.addComponent('body', BodyComponent)
+    config.addComponent('figure', FigureComponent)
+    config.addComponent('hyperlink', HyperlinkComponent)
     config.addComponent('paragraph', ParagraphComponent)
     config.addComponent('pullquote', PullquoteComponent)
-    config.addComponent('figure', FigureComponent)
-    config.addComponent('emphasis', EmphasisComponent)
-    config.addComponent('hyperlink', HyperlinkComponent)
+    config.addComponent('pullquote-body', PullquoteBodyComponent)
+    config.addComponent('pullquote-credit', PullquoteCreditComponent)
+    config.addComponent('title', TitleComponent)
 
     // Declarative spec for tool display
     config.addToolPanel('toolbar', [

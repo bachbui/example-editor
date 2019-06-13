@@ -6,8 +6,14 @@ Pullquote.schema = {
   type: 'pullquote',
   body: { type: 'id' },
   credit: { type: 'id' },
-  inset: { type: 'string', default: 'center' }
+  position: { type: 'string', default: 'center' }
 }
+
+Pullquote.positions = [
+  { name: 'Inset Left', value: 'inset-left' },
+  { name: 'Center', value: 'center' },
+  { name: 'Inset Right', value: 'inset-right' }
+]
 
 class PullquoteBody extends Container {}
 

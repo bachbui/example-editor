@@ -1,0 +1,15 @@
+.sm-pullquote .pullquote {
+  margin-left: 1em;
+  border-left: 2px solid gray;
+  padding: 0 1em;
+}
+.sm-pullquote.inset-left {
+  max-width: 45%;
+  float: left;
+  margin-right: 5%;
+}
+.sm-pullquote.inset-right {
+  max-width: 45%;
+  float: right;
+  margin-left: 5%;
+}

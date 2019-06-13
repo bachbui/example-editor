@@ -7,7 +7,7 @@ import { ToggleTool } from 'substance'
   @component
 */
 
-class EditFigureTool extends ToggleTool {
+class EditPositionTool extends ToggleTool {
 
   getNodeId() {
     return this.props.commandState.nodeId
@@ -62,4 +62,4 @@ class EditFigureTool extends ToggleTool {
   }
 }
 
-export default EditFigureTool
+export default EditPositionTool

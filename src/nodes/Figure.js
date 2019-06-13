@@ -18,9 +18,9 @@ Figure.schema = {
 }
 
 Figure.positions = [
-  { name: 'Left', value: 'inset-left' },
+  { name: 'Inset Left', value: 'inset-left' },
   { name: 'Center', value: 'center' },
-  { name: 'Right', value: 'inset-right' },
+  { name: 'Inset Right', value: 'inset-right' },
   { name: 'Full Bleed', value: 'full-bleed'}
 ]
 

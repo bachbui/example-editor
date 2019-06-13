@@ -8,7 +8,7 @@ export default `<?xml version="1.0"?>
     <paragraph>All three films had been acclaimed but, as Nichols acknowledged, “underseen.” He had resolved not to let this happen again, which is why he was here, in this tricked-out dubbing stage—the same one, the Arkansas native delighted in pointing out, where another one-time indie darling, Christopher Nolan, had mixed his 2014 blockbuster <i>Interstellar</i>. If Nichols had anything to say about it, <i>Midnight Special</i>would do better than any of his other movies and be a stepping-stone to something even bigger. To <i>experiential</i> and <i>moving</i>, Nichols wanted to add <i>blockbusting</i>.</paragraph>
     <paragraph>A few more tweaks and Nichols announced it was time for a break. Blinking as we stepped into the bright LA sunshine, we headed for the studio’s commissary. We took our burgers to a picnic table outside, and as soon as we sat down, Nichols’ usually voluble Little Rock twang dropped to a whisper. “Wow!” he hissed, his eyes locked on a gray-haired, lanky guy about 100 feet away. “There’s Clint Eastwood! Right there!” I looked, and, yep, there he was.</paragraph>
     <paragraph>“Oh, man, that’s rad,” Nichols said, giddy as any fan. “I’ve eaten here, like, a million times, and I’ve never seen anyone famous.”</paragraph>
-    <pullquote>
+    <pullquote position="inset-left">
       <pullquote-body>
         <paragraph>The path from Southern Gothic indies to superheroes isn’t an obvious one—and not one that everybody with the film-school cred of Nichols would want to walk.</paragraph>
       </pullquote-body>
