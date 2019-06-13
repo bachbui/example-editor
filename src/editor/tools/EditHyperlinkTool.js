@@ -18,6 +18,11 @@ class EditHyperlinkTool extends ToggleTool {
     return this.props.commandState.nodeId
   }
 
+  getNode() {
+    let doc = this.context.editorSession.getDocument()
+    return doc.get(this.getNodeId());
+  }
+
   _openLink() {
     let doc = this.context.editorSession.getDocument()
     window.open(doc.get(this.getUrlPath()), '_blank')
@@ -26,6 +31,7 @@ class EditHyperlinkTool extends ToggleTool {
   render($$) {
     let Input = this.getComponent('input')
     let Button = this.getComponent('button')
+    let Checkbox = this.getComponent('checkbox')
     let commandState = this.props.commandState
     let el = $$('div').addClass('sc-edit-hyperlink-tool')
 
@@ -36,13 +42,20 @@ class EditHyperlinkTool extends ToggleTool {
     }
 
     let urlPath = this.getUrlPath()
+    let isAffiliateLink = this.getNode().isAffiliateLink
 
     el.append(
-      $$(Input, {
-        type: 'url',
-        path: urlPath,
-        placeholder: 'Paste or type a link url'
-      }),
+      $$('fieldset').append(
+        $$(Input, {
+          type: 'url',
+          path: urlPath,
+          placeholder: 'Paste or type a link url'
+        }),
+        $$(Checkbox, {
+          checked: isAffiliateLink,
+          label: 'Affiliate link'
+        }).on('change', this.onAffiliateLinkChange)
+      ),
       $$(Button, {
         icon: 'open-hyperlink',
         theme: 'dark',
@@ -56,9 +69,7 @@ class EditHyperlinkTool extends ToggleTool {
     return el
   }
 
-  onDelete(e) {
-    e.preventDefault();
-    let nodeId = this.getNodeId()
+  _runInTransaction(transactionFunction) {
     let sm = this.context.surfaceManager
     let surface = sm.getFocusedSurface()
     if (!surface) {
@@ -66,10 +77,26 @@ class EditHyperlinkTool extends ToggleTool {
       return
     }
     let editorSession = this.context.editorSession
-    editorSession.transaction(function(tx, args) {
+    editorSession.transaction(transactionFunction);
+  }
+
+  onAffiliateLinkChange(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let nodeId = this.getNodeId();
+    this._runInTransaction(function(tx, args) {
+      tx.set([nodeId, 'isAffiliateLink'], e.srcElement.checked)
+      return args
+    });
+  }
+
+  onDelete(e) {
+    e.preventDefault();
+    let nodeId = this.getNodeId()
+    this._runInTransaction(function(tx, args) {
       tx.delete(nodeId)
       return args
-    })
+    });
   }
 }
 

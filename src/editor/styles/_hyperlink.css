@@ -13,12 +13,19 @@
 
 .sc-edit-hyperlink-tool .sc-input {
   height: 24px;
-  font-size: 11px;
-  color: white;
+  /* font-size: 11px; */
+  /* color: white; */
   min-width: 200px;
-  font-family: Monaco, 'Courier New';
+  /* font-family: Monaco, 'Courier New'; */
   padding: 5px;
   background: transparent;
   border: none;
   margin: 2px;
+}
+
+.sc-edit-hyperlink-tool input,
+.sc-edit-hyperlink-tool label {
+  font-size: 11px;
+  color: white;
+  font-family: Monaco, 'Courier New';
 }

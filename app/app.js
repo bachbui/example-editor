@@ -1,4 +1,4 @@
-import { Configurator, EditorSession } from 'substance'
+import { Configurator, EditorSession, ParentNodeHook } from 'substance'
 
 import { ExampleEditor, ExampleEditorPackage } from '../index.es.js'
 import fixture from './fixture'
@@ -14,6 +14,7 @@ window.onload = function() {
   let editorSession = new EditorSession(doc, {
     configurator: config
   })
+  window.editorSession = editorSession
 
   // Mount the editor to the DOM and run it
   ExampleEditor.mount({
