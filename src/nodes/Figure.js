@@ -14,20 +14,14 @@ Figure.schema = {
   imageSource: { type: 'string' },
   title: { type: 'id' },
   caption: { type: 'id' },
-  inset: { type: 'string', default: 'center' },
-  size: { type: 'string', default: 'large' }
+  position: { type: 'string', default: 'center' }
 }
 
-Figure.sizes = [
-  { name: 'Small', value: 'small' },
-  { name: 'Medium', value: 'medium' },
-  { name: 'Large', value: 'large' }
-]
-
-Figure.insets = [
-  { name: 'Left', value: 'left' },
+Figure.positions = [
+  { name: 'Left', value: 'inset-left' },
   { name: 'Center', value: 'center' },
-  { name: 'Right', value: 'right' }
+  { name: 'Right', value: 'inset-right' },
+  { name: 'Full Bleed', value: 'full-bleed'}
 ]
 
 export default Figure

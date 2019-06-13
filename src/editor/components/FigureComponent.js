@@ -5,7 +5,7 @@ class FigureComponent extends NodeComponent {
   didMount() {
     super.didMount.call(this)
     this.context.editorSession.onRender('document', this._onDocumentChange, this)
-    this.parent.getClassNames = this.getInsetClassNames
+    this.parent.getClassNames = this.getPositionClassNames
   }
 
   dispose() {
@@ -18,7 +18,7 @@ class FigureComponent extends NodeComponent {
       change.hasUpdated(this.props.node.imageSource)) {
       this.rerender()
     }
-    if (change.hasUpdated([this.props.node.id, 'inset'])) {
+    if (change.hasUpdated([this.props.node.id, 'position'])) {
       this.parent.rerender()
     }
   }
@@ -38,12 +38,8 @@ class FigureComponent extends NodeComponent {
     return el
   }
 
-  getInsetClassNames() {
-    let inset = this.props.node.inset
-    if (inset === 'left' || inset === 'right') {
-      return `inset-${inset}`
-    }
-    return ''
+  getPositionClassNames() {
+    return this.props.node.position
   }
 }
 

@@ -3,7 +3,7 @@ import { Component } from 'substance';
 export default class Dropdown extends Component {
   render($$) {
     let el = this.renderLabel($$);
-    el.insertAt(0, this.renderInput($$));
+    el.append(this.renderInput($$));
 
     if (this.props.active) {
       el.addClass('sm-active')

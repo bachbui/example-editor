@@ -20,7 +20,6 @@ class EditFigureTool extends ToggleTool {
 
   render($$) {
     let node = this.getNode()
-    let Input = this.getComponent('input')
     let Dropdown = this.getComponent('dropdown')
     let commandState = this.props.commandState
     let el = $$('div').addClass('sc-edit-hyperlink-tool')
@@ -34,32 +33,19 @@ class EditFigureTool extends ToggleTool {
     el.append(
       $$('fieldset').append(
         $$(Dropdown, {
-          options: node.constructor.sizes,
-          value: node.size,
-          label: 'Size'
-        }).on('change', this.onSizeChange),
-        $$(Dropdown, {
-          options: node.constructor.insets,
-          value: node.inset,
-          label: 'Inset'
-        }).on('change', this.onInsetChange)
+          options: node.constructor.positions,
+          value: node.position,
+          label: 'Position'
+        }).on('change', this.onPositionChange)
       )
     )
     return el
   }
 
-  onSizeChange(e) {
+  onPositionChange(e) {
     let nodeId = this.getNodeId();
     this._runInTransaction(function(tx, args) {
-      tx.set([nodeId, 'size'], e.srcElement.value)
-      return args
-    });
-  }
-
-  onInsetChange(e) {
-    let nodeId = this.getNodeId();
-    this._runInTransaction(function(tx, args) {
-      tx.set([nodeId, 'inset'], e.srcElement.value)
+      tx.set([nodeId, 'position'], e.srcElement.value)
       return args
     });
   }

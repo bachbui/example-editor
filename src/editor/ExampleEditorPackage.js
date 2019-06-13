@@ -10,13 +10,16 @@ import {
 
 import {
   Body,
-  ExampleArticle,
-  Paragraph,
-  Title,
-  Figure,
   Caption,
   Emphasis,
-  Hyperlink
+  ExampleArticle,
+  Figure,
+  Hyperlink,
+  Paragraph,
+  Pullquote,
+  PullquoteBody,
+  PullquoteCredit,
+  Title
 } from '../nodes'
 
 import {
@@ -63,14 +66,17 @@ export default {
     config.import(SubstanceBasePackage)
 
     // Register Nodes
-    config.addNode(ExampleArticle)
-    config.addNode(Title)
     config.addNode(Body)
-    config.addNode(Paragraph)
-    config.addNode(Figure)
     config.addNode(Caption)
     config.addNode(Emphasis)
+    config.addNode(ExampleArticle)
+    config.addNode(Figure)
     config.addNode(Hyperlink)
+    config.addNode(Paragraph)
+    config.addNode(Pullquote)
+    config.addNode(PullquoteBody)
+    config.addNode(PullquoteCredit)
+    config.addNode(Title)
 
     // Converters
     config.addConverter('xml', ExampleArticleConverter)

@@ -9,15 +9,6 @@
   max-width: 100%;
   margin: 0px auto;
 }
-.sc-figure.size-small {
-  width: 50%
-}
-.sc-figure.size-medium {
-  width: 75%
-}
-.sc-figure.size-large {
-  width: 100%
-}
 .sm-figure.inset-left {
   max-width: 45%;
   float: left;
@@ -27,4 +18,12 @@
   max-width: 45%;
   float: right;
   margin-left: 5%;
+}
+.sm-figure.full-bleed {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+.sm-figure.full-bleed figcaption {
+  text-align: center;
 }
